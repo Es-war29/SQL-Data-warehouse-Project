@@ -19,8 +19,8 @@ Develop a modern data warehouse using SOL Server to consolidate sales data, enab
 - **Scope**: Focus on the latest dataset only; historication of data is not required.
 - **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
 
-  ---
-  ### BI: Analytics & Reporting (Data Analytics)
+---
+### BI: Analytics & Reporting (Data Analytics)
 ### Objective
 Develop SQL-based analytics to deliver detailed insights into:
 - **Customer Behavior**
@@ -28,7 +28,6 @@ Develop SQL-based analytics to deliver detailed insights into:
 - **Sales Trends**
 
 These insights empower stakeholders with key business metrics, enabling strategic decision-making.
-
 ---
 
 ## About Me
