@@ -1,0 +1,176 @@
+--------------------POST-validation------------------------
+-- checks for table silver.crm_cst_info
+
+-- check duplicate and null values in the primary key
+
+select 
+    cst_id, count(*) duplicates
+from bronze.crm_cst_info
+group by cst_id
+having duplicates > 1 or cst_id IS NULL;
+
+-- check  unwanted spaces
+
+select
+    cst_first_name,
+    cst_lastname
+from silver.crm_cst_info
+where cst_first_name != trim(cst_first_name)
+and cst_lastname != trim(cst_lastname);
+
+-- data standardization and consistency
+-- Removing abbreviations in gender and marital status
+
+select distinct cst_gndr  from silver.crm_cst_info;
+select distinct cst_material_status  from silver.crm_cst_info;
+
+------------------------------------------------------------------
+-- checks for table silver.crm_prd_info
+
+-- check for duplicate values in primary key 
+
+select 
+    prd_id, count(*) duplicates
+from silver.crm_prd_info
+group by prd_id
+having duplicates > 1 or prd_id IS NULL;
+
+-- check unwanted spaces 
+
+select 
+    prd_nm
+from silver.crm_prd_info
+where prd_nm != trim(prd_nm);
+
+-- check for nulls or negative values
+
+select 
+    prd_cost
+from silver.crm_prd_info
+where prd_cost <0 or prd_cost IS NULL;
+
+-- data standardization and consistency
+-- Removing abbreviations in gender and marital status
+
+select 
+    distinct(prd_line) 
+from silver.crm_prd_info;
+
+-- check for invalid date order
+
+select * 
+from silver.crm_prd_info
+where prd_end_dt < prd_start_dt;
+------------------------------------------------------------------
+-- checks for table bronze.crm_sales_info
+
+--check unwanted spaces
+select
+    *
+from silver.crm_sales_info
+where sls_ord_num != trim(sls_ord_num);
+
+-- check if any  sls_prd_key doesn't match with other table value
+
+select * from silver.crm_sales_info
+where sls_prd_key NOT IN (select prd_key from silver.crm_prd_info);
+
+-- check if any  sls_cust_id doesn't match with other table value
+
+select * from silver.crm_sales_info
+where sls_cust_id NOT IN (select cst_id from silver.crm_cst_info);
+
+-- checks the invalid dates
+
+select 
+    sls_order_dt,sls_ship_dt,sls_due_dt
+from silver.crm_sales_info
+where sls_order_dt <=0 
+or len(sls_order_dt) !=8 
+or sls_order_dt >20500101 
+or sls_order_dt <19000101;
+
+-- check invalid date orders
+
+select 
+    sls_order_dt,sls_ship_dt,sls_due_dt
+from silver.crm_sales_info
+where sls_order_dt > sls_ship_dt or sls_order_dt > sls_due_dt;
+
+
+-- check data consistency: between sales, quantity, and price
+-- >> slaes = quantity * price
+-- >> Values must not be null, zeros, or negative
+
+
+select distinct
+    sls_sales,
+    sls_quantity,
+    sls_price
+from silver.crm_sales_info
+where sls_sales != sls_quantity * sls_price
+or sls_sales is null or sls_quantity is null or sls_price is null
+or sls_sales <= 0 or  sls_quantity <= 0 or  sls_price <= 0
+order by sls_sales,sls_quantity,sls_price;
+-----------------------------------------------------------------------------
+-- checks for table silver.erp_cst_az12
+
+-- check cid which is not  matching with other table 
+select 
+    *
+from silver.erp_cst_az12
+where cid NOT IN (select cst_key from silver.crm_cst_info);
+
+select * from silver.erp_cst_az12
+where case when cid like 'NAS%' then substr(cid,4,len(cid))
+         else cid 
+    end not in (select cst_key from silver.crm_cst_info);
+
+    
+-- check bdate range
+select * from silver.erp_cst_az12
+where bdate > current_date() or bdate <'1900-01-01';
+
+-- data standarization & consistency
+
+select distinct gen 
+from silver.erp_cst_az12;
+---------------------------------------------------------------------------
+-- checks for table silver.erp_loc_a101
+
+-- check cid which is not matching in the other table
+
+select cid, replace(cid,'-','') cid1
+from silver.erp_loc_a101
+where cid1 NOT IN (select cst_key from silver.crm_cst_info);
+
+-- Data Standarization and consistency
+
+select distinct cntry
+from silver.erp_loc_a101
+order by cntry;
+---------------------------------------------------------------------------
+-- checks for table silver.erp_px_cat_g1v2
+
+-- check unwanted spaces
+select 
+    cat,subcat,maintenance
+from silver.erp_px_cat_g1v2
+where cat != trim(cat) 
+or subcat != trim(subcat)
+or maintenance != trim(maintenance);
+
+-- data standarization and consistency
+select distinct cat
+from  silver.erp_px_cat_g1v2;
+
+select distinct subcat
+from  silver.erp_px_cat_g1v2;
+
+select distinct maintenance
+from  silver.erp_px_cat_g1v2;
+
+-- check id which is not matching in the other table
+select  * 
+from silver.erp_px_cat_g1v2
+where id not in (select cat_id from silver.crm_prd_info);
