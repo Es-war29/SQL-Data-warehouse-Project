@@ -1,8 +1,10 @@
-# [*SQL-Data-warehouse-Project*](https://github.com/Es-war29/SQL-Data-warehouse-Project) 
+# [*SQL-Data-warehouse-Project*](https://github.com/Es-war29/SQL-Data-warehouse-Project)  <br>
 Building a modern data warehouse with Snowflake, including ETL processes, data modeling, and analytics
 ---
-Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+<br>
+Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  <br>
+This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics. 
+
 ---
 ## 🏗️ Data Architecture
 
@@ -49,7 +51,7 @@ Develop a modern data warehouse using SOL Server to consolidate sales data, enab
 
 ## About Me
 Hello, I am **Eswar**, I am learning *SQL & Snowflake*. This project is one of my learning experiences.<br>
-My Data Engineering project: [link](https://github.com/Es-war29/SQL-Data-warehouse-Project) <br>
-Notion: [link](https://www.notion.so/Data-Engineering-Project-27e6efc8049b803984d0d5dd17c2c2dc) <br>
-Thank you [DataWithBaraa](https://github.com/DataWithBaraa/DataWithBaraa)❤️ for creating this amazing content on SQL.
+My Data Engineering project: [link](https://github.com/Es-war29/SQL-Data-warehouse-Project) | Notion: [link](https://www.notion.so/Data-Engineering-Project-27e6efc8049b803984d0d5dd17c2c2dc) <br>
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/eswar-pillalamarri/) or check out my other projects on [GitHub](https://github.com/Es-war29). <br>
+Thank you [DataWithBaraa](https://github.com/DataWithBaraa/DataWithBaraa)❤️ for creating this amazing content on SQL. 
 
