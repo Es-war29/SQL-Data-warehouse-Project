@@ -172,16 +172,16 @@ BEGIN
         sls_prd_key,
         sls_cust_id,
         case 
-            when sls_order_dt=0 or len(sls_order_dt) !=8  then NULL
-            else cast(cast(sls_order_dt as varchar) as DATE)
+        when sls_order_dt=0 or len(sls_order_dt) !=8  then NULL
+        else TO_DATE(TO_VARCHAR(sls_order_dt), 'YYYYMMDD')
         end sls_order_dt,
         case 
             when sls_ship_dt =0 or len(sls_ship_dt) !=8  then NULL
-            else cast(cast(sls_ship_dt as varchar) as DATE)
+            else TO_DATE(TO_VARCHAR(sls_ship_dt), 'YYYYMMDD')
         end sls_ship_dt,
         case 
             when sls_due_dt=0 or len(sls_due_dt) !=8  then NULL
-            else cast(cast(sls_due_dt as varchar) as DATE)
+            else TO_DATE(TO_VARCHAR(sls_due_dt), 'YYYYMMDD')
         end sls_due_dt,
         case when sls_sales IS NULL or sls_sales <=0 or sls_sales != sls_quantity *ABS(sls_price)
                 then sls_quantity *ABS(sls_price)
@@ -208,9 +208,9 @@ BEGIN
         case when bdate > current_date() then NULL
              else bdate
         end bdate, -- set future birthdays to NULL
-        case 
-            when upper(trim(gen)) IN ('M','Male') then 'Male'
-            when upper(trim(gen)) IN ('F','Female') then 'Female'
+         case 
+            when upper(trim(gen)) = 'M' or (trim(gen)) ='Male' then 'Male'
+            when upper(trim(gen)) = 'F' or (trim(gen)) ='Female' then 'Female'
             else 'N/A'
         end gen -- Normalized gender values and handled unknown values
     from bronze.erp_cst_az12;
@@ -257,6 +257,15 @@ $$;
 
 
 CALL etl_silver();
+
+
+-- truncate the tabels
+    truncate table silver.crm_cst_info;
+    truncate table silver.crm_prd_info;
+    truncate table silver.crm_sales_info;
+    truncate table silver.erp_cst_az12;
+    truncate table silver.erp_loc_a101;
+    truncate table silver.erp_px_cat_g1v2;
 
 select * from silver.crm_cst_info; --18.5k records
 select * from silver.crm_prd_info; --18.5k records
