@@ -1,10 +1,37 @@
 # [*SQL-Data-Engineering-Project*](https://github.com/Es-war29/SQL-Data-Engineering-Project)
 Building a modern data warehouse with Snowflake, including ETL processes, data modeling, and analytics
 
-Welcome to the "Data Warehouse and Analytics Project"
-This Project demonstrates a comprehensive data warehousing and analytical solution, from building a data warehouse to generating actionable insights.
-Designed as a portfolio project that highlights industry best practices in data engineering and analytics.
+Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
+This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+---
+## 🏗️ Data Architecture
 
+The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
+![Data Architecture](https://github.com/Es-war29/SQL-Data-Engineering-Project/blob/main/docs/data_archicteure.png)
+
+1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
+2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
+3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
+
+---
+## 📖 Project Overview
+
+This project involves:
+
+1. **Data Architecture**: Designing a Modern Data Warehouse Using Medallion Architecture **Bronze**, **Silver**, and **Gold** layers.
+2. **ETL Pipelines**: Extracting, transforming, and loading data from source systems into the warehouse.
+3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
+4. **Analytics & Reporting**: Creating SQL-based reports and dashboards for actionable insights.
+
+🎯 This repository is an excellent resource for professionals and students looking to showcase expertise in:
+- SQL Development
+- Data Architect
+- Data Engineering  
+- ETL Pipeline Developer  
+- Data Modeling  
+- Data Analytics  
+
+---
 ---
 ## Project Requirements
 
@@ -20,16 +47,9 @@ Develop a modern data warehouse using SOL Server to consolidate sales data, enab
 - **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
 
 ---
-### BI: Analytics & Reporting (Data Analytics)
-### Objective
-Develop SQL-based analytics to deliver detailed insights into:
-- **Customer Behavior**
-- **Product Performance**
-- **Sales Trends**
-
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.
----
 
 ## About Me
-Hello, I am **Eswar**, I am learning *SQL & Snowflake*. This project is one of my learning experiences.
+Hello, I am **Eswar**, I am learning *SQL & Snowflake*. This project is one of my learning experiences.<br>
+My Data Engineering project: [link](https://github.com/Es-war29/SQL-Data-Engineering-Project) <br>
+Thank you [DataWithBaraa](https://github.com/DataWithBaraa/DataWithBaraa)❤️ for creating this amazing content on SQL.
 
