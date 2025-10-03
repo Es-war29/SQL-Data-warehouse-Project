@@ -1,0 +1,23 @@
+----------------------------Gold Layer Transformations--------------------------------
+select distinct
+     ci.cst_gndr,
+     ca.gen,
+     case 
+          when lower(ci.cst_gndr) != 'n/a' then ci.cst_gndr -- crm is the master for gender info
+          else coalesce(ca.gen,'N/A')
+     end as new_gen
+from silver.crm_cst_info ci
+LEFT JOIN silver.erp_cst_az12 ca 
+on ci.cst_key = ca.cid
+LEFT JOIN silver.erp_loc_a101 ce
+on ci.cst_key = ce.cid
+order by 1,2;
+
+select
+    p.prd_key,COUNT(*) dup
+from silver.crm_prd_info p
+left join silver.erp_px_cat_g1v2 pc
+on p.cat_id = pc.id
+where prd_end_dt is null
+GROUP BY prd_key
+having dup >1;
