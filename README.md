@@ -1,4 +1,4 @@
-# [*SQL-Data-Engineering-Project*](https://github.com/Es-war29/SQL-Data-Engineering-Project) 
+# [*SQL-Data-warehouse-Project*](https://github.com/Es-war29/SQL-Data-warehouse-Project) 
 Building a modern data warehouse with Snowflake, including ETL processes, data modeling, and analytics
 ---
 Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
@@ -49,7 +49,7 @@ Develop a modern data warehouse using SOL Server to consolidate sales data, enab
 
 ## About Me
 Hello, I am **Eswar**, I am learning *SQL & Snowflake*. This project is one of my learning experiences.<br>
-My Data Engineering project: [link](https://github.com/Es-war29/SQL-Data-Engineering-Project) <br>
+My Data Engineering project: [link](https://github.com/Es-war29/SQL-Data-warehouse-Project) <br>
 Notion: [link](https://www.notion.so/Data-Engineering-Project-27e6efc8049b803984d0d5dd17c2c2dc) <br>
 Thank you [DataWithBaraa](https://github.com/DataWithBaraa/DataWithBaraa)❤️ for creating this amazing content on SQL.
 
