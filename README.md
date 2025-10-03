@@ -1,6 +1,7 @@
-# [*SQL-Data-Engineering-Project*](https://github.com/Es-war29/SQL-Data-Engineering-Project)
+# [*SQL-Data-Engineering-Project*](https://github.com/Es-war29/SQL-Data-Engineering-Project) <br>
 Building a modern data warehouse with Snowflake, including ETL processes, data modeling, and analytics
-
+---
+<br>
 Welcome to the **Data Warehouse and Analytics Project** repository! 🚀  
 This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
 ---
@@ -12,7 +13,6 @@ The data architecture for this project follows Medallion Architecture **Bronze**
 1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
 2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
 3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
-
 ---
 ## 📖 Project Overview
 
@@ -45,11 +45,12 @@ Develop a modern data warehouse using SOL Server to consolidate sales data, enab
 - **Integration**: Combine both sources into a single, user-friendly data model designed for analytical querles.
 - **Scope**: Focus on the latest dataset only; historication of data is not required.
 - **Documentation**: Provide clear documentation of the data model to support both business stakeholders and analytics teams.
-
+- **Notion**: Notion is an all-in-one workspace to organize notes, docs, tasks, and projects collaboratively, making it ideal for planning and documenting data engineering workflows.
 ---
 
 ## About Me
 Hello, I am **Eswar**, I am learning *SQL & Snowflake*. This project is one of my learning experiences.<br>
 My Data Engineering project: [link](https://github.com/Es-war29/SQL-Data-Engineering-Project) <br>
+Notion: [link](https://www.notion.so/Data-Engineering-Project-27e6efc8049b803984d0d5dd17c2c2dc) <br>
 Thank you [DataWithBaraa](https://github.com/DataWithBaraa/DataWithBaraa)❤️ for creating this amazing content on SQL.
 
